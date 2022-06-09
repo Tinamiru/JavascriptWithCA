@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div class="alert" id="a">
+        <p id="title">알림창</p>
+        <button id = "close">닫기</button>
+    </div>
+    <script>
+        document.getElementById('close').addEventListener('click', function(){
+            document.getElementById('a').style.display = 'none';
+        });
+
+        function 알림창열기(구멍){
+            document.getElementById('a').style.display = 구멍;
+        }
+    </script>
+</body>
+</html>

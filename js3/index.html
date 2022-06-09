@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="alr1" id="a1"><span>Holy Moly Guacamoly</span>
+        you chould check in on some of those fleids below
+        <button class="close1" onclick="close('a1')"></button>
+    </div><br>
+    <div class="alr2" id="a2"><span>Holy Moly Guacamoly</span>
+        you chould check in on some of those fleids below
+        <button class="close2" onclick="close('a2')"></button>
+    </div><br>
+    <div class="alr3" id="a3"><span>Holy Moly Guacamoly</span>
+        you chould check in on some of those fleids below
+        <button class="close3" onclick="close('a3')"></button>
+    </div><br>
+    <div class="idNpw" id="idNpw">
+    </div>
+    <button onclick="divc('비번입력하셈')">PW</button>
+    <button onclick="divc('아이디쓰셈')">ID</button>
+
+
+</body>
+<script>
+    function close(ddid) {
+        document.getElementById(ddid).style.display = 'none';
+    }
+
+    function divc(t) {
+        document.getElementById('idNpw').style.display = 'block';
+        document.getElementById('idNpw').innerText = t;
+    }
+
+</script>
+
+</html>

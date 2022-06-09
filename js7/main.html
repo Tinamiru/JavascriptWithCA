@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>합격햇?<br>
+        <input type="text" id="n1">
+        <input type="text" id="n2">
+        <button type="button" id="btn">꾸욱</button>
+        <p id="result1" style="border: solid 1px; width: 100px; text-align: center">
+            출력창
+        </p>
+    </div>
+    <hr>
+    <div>삼육구게임<br>
+        <input type="text" id="n3">
+        <button type="button" id="btn2">꾸욱</button>
+        <p id="result2" style="border: solid 1px; width: 100px; text-align: center;">
+            출력창
+        </p>
+    </div>
+
+    <script>
+
+        document.querySelector('#btn').addEventListener('click',
+            function 합격핸(n1, n2) {
+                n1 = document.getElementById('n1').value
+                n2 = document.getElementById('n2').value
+                if (isNaN(n1) || isNaN(n2)) {
+                    document.getElementById('result1').innerText = "장난 ㄴㄴ";
+                } else {
+                    if ((n1 + n2) < 120 || n1 < 40 || n2 < 40) {
+                        document.getElementById('result1').innerText = "불합격";
+                    } else {
+                        document.getElementById('result1').innerText = "합격";
+                    }
+                }
+            });
+
+        document.querySelector('#btn2').addEventListener('click',
+            function 삼육구게임(n) {
+                n = document.getElementById('n3').value
+                let str = "";
+
+                for (let i = 0; i < n.length; i++) {
+                    if (n.charAt(i) == '3' || n.charAt(i) == '6' || n.charAt(i) == '9') {
+                        str += '짝';
+                    }
+                }
+                if (str != "") {
+                    document.getElementById('result2').innerText = str;
+                } else {
+                    document.getElementById('result2').innerText = "통과";
+                }
+            }
+        );
+
+    </script>
+</body>
+
+</html>
