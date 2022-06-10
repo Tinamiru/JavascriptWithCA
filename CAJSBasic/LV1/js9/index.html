@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p>
+        태조 이성계가 태어난 년도는?
+    </p>
+    <input type="text" id="answer">
+    <button id="send-answer">제출</button>
+
+    <script>
+        ////////////////////////이성계/////////////////////////////
+        var count = 0;
+
+        document.querySelector('#send-answer').addEventListener('click', function () {
+            var vvv = document.querySelector('#answer').value
+            if (vvv == '') {
+                alert('값을 입력해라');
+            } else {
+                if (vvv == 1335) {
+                    alert('정답!');
+                } else {
+                    alert('땡!');
+                    count++;
+                } if (count % 3 == 0) {
+                    alert('멍청하군요?')
+                }
+            }
+        })
+        /////////////////////////예금이자/////////////////////////////////
+        var 예금액 = 10000;
+        var 미래예금액 = 0;
+
+        미래예금액 += 예금액;
+
+        function 높은월이자() {
+            미래예금액 += (미래예금액 * 0.2);
+        }
+        function 낮은월이자() {
+            미래예금액 += (미래예금액 * 0.15);
+        }
+
+        if (예금액 > 50000) {
+            높은월이자();
+            높은월이자();
+        } else if (예금액 < 50000) {
+            낮은월이자();
+            낮은월이자();
+        }
+
+        console.log(1.2 ** 10);
+
+        console.log(미래예금액);
+        ////////////////////////////커피/////////////////////////////////////////
+        var first = 360;
+        var second = first / 3 * 2;
+        var result = first + second;
+
+        //////////////////////////한무커피/////////////////////////
+        while (second > 1) {
+            second = second / 3 * 2;
+            result += second;
+        }
+
+        console.log(result)
+
+
+
+    </script>
+</body>
+
+</html>
