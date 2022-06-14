@@ -46,3 +46,16 @@
     padding: 100px 20px;
     background: lightgray;
 }
+
+.slide-container {
+    width: 300vw;
+    transition: all 0.5s;
+}
+
+.silide-box{
+    width: 100vw;
+    float: left;
+}
+.silide-box img {
+    width: 100%;
+}
