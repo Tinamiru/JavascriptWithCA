@@ -40,6 +40,7 @@
             <button class="navbar-toggler" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="progress"></div>
         </div>
     </nav>
 
@@ -50,10 +51,45 @@
         <li class="list-group-item">A fourth item</li>
         <li class="list-group-item">And a fifth one</li>
     </ul>
+
     <div class="main-bg">
         <h4>Shirts on Sale</h4>
         <button id="login" class="btn btn-danger">로그인</button>
     </div>
+
+    <div class="lorem" style="width:  200px; height: 100px; overflow-y: scroll">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+        Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+    <div style="height: 1000px;">
+
+    </div>
+    <script>
+
+        // 스크롤을 다 내렸을 때 알람창 띄우기
+
+        // div의 스크롤바 내린 양 + 눈에 보이는 div 높이 == div의 실제 높이
+        $('.lorem').on('scroll', function () {
+            let lorem = document.querySelector('.lorem');
+            var scrollVelue = lorem.scrollTop;
+            var scrollHeightVelue = lorem.scrollHeight;
+            var scrollRealHeight = lorem.clientHeight;
+
+            console.log(scrollVelue, scrollRealHeight, scrollHeightVelue);
+            if (scrollVelue + scrollRealHeight == scrollHeightVelue) {
+                alert("다봤슈?");
+
+            }
+
+
+        });
+    </script>
+
     <div class="alert alert-danger">5초 이내 구매시 사은품 증정!</div>
 
     <div style="overflow: hidden;">
@@ -77,6 +113,26 @@
 
     <script>
 
+        $(window).on('scroll', function () {
+            var currentPercentage = ($(window).scrollTop() / ($(document).outerHeight() - $(window).height())) * 100;
+            $('.progress').width(currentPercentage + '%');
+        });
+
+        /*         window.addEventListener('scroll', function () {
+                    console.log(window.scrollY);
+                }); */
+
+        $(window).on('scroll', function () {
+            /*            $(window).scrollTop(100); */
+            if (window.pageYOffset > 100) {
+                $('.navbar-brand').css('font-size', '15px');
+            }
+            if (window.pageYOffset < 100) {
+                $('.navbar-brand').css('font-size', '30px');
+            }
+
+        });
+
         var picCount = 0;
         $('.next').on('click', function () {
             if (picCount == 2) {
@@ -88,15 +144,15 @@
             }
         });
 
-            $('.before').on('click', function () {
-                if (picCount == 0) {
-                    picCount = 2;
-                    $('.slide-container').css('transform', 'translateX(-' + picCount + '00vw)');
-                } else {
-                    picCount--;
-                    $('.slide-container').css('transform', 'translateX(-' + picCount + '00vw)');
-                }
-            });
+        $('.before').on('click', function () {
+            if (picCount == 0) {
+                picCount = 2;
+                $('.slide-container').css('transform', 'translateX(-' + picCount + '00vw)');
+            } else {
+                picCount--;
+                $('.slide-container').css('transform', 'translateX(-' + picCount + '00vw)');
+            }
+        });
 
         $('.silde-1').on('click', function () {
             $('.slide-container').css('transform', 'translateX(0vw)');

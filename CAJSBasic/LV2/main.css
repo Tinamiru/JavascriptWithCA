@@ -59,3 +59,23 @@
 .silide-box img {
     width: 100%;
 }
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+
+.navbar-brand{
+    font-size: 30px;
+    transition: all 0.5s;
+}
+
+.progress {
+    position:fixed;
+    top:0%;
+    left:0%;
+    width: 0%;
+    height: 4px;
+    background-color: green;
+}
