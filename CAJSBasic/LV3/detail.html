@@ -58,6 +58,27 @@
 
 <body>
 
+
+    <div class="container mt-3">
+        <div class="card p-3">
+            <span class="car-name">상품명</span> / <span class="car-price">가격</span>
+        </div>
+    </div>
+
+    <script>
+        var car = ['소나타', 50000, 'white'];
+        // 일반 배열
+        var car2 = {name : '소나타', price : [50000, 3000, 4000]};
+        // 오브젝트 자료형
+        // 자바의 맵과 같은 성질(Key와 value로 이루어짐.)
+
+        $('.car-name').text(car2.name);
+        $('.car-price').text(car2.price[1]);
+
+
+    </script>
+
+
     <div class="container mt-5">
         <ul class="list">
             <li class="tab-button" data-id="0">Products</li>

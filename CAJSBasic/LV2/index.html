@@ -71,6 +71,23 @@
     </div>
     <script>
 
+        document.querySelector('.black-bg').addEventListener('click', function (e) {
+            // e.target; // 유저가 실제로 누른것
+            // e.currentTarget; // 이벤트리스너 달린 곳
+            // this; // 위와 같음
+            // e.preventDefault; // 이벤트 발생 캔슬의 개념
+            // e.stopPropagation; // 내 상위 요소로 이벤트 버블링 막아줌 */
+            if (e.target == document.querySelector('.black-bg')) {
+                document.querySelector('.black-bg').classList.remove('show-modal');
+            }
+        });
+
+        $('.black-bg').on('click', function (e) {
+            if (e.target == document.querySelector('.black-bg')) {
+                $('.black-bg').removeClass('show-modal');
+            }
+        });
+
         // 스크롤을 다 내렸을 때 알람창 띄우기
 
         // div의 스크롤바 내린 양 + 눈에 보이는 div 높이 == div의 실제 높이
