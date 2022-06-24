@@ -105,10 +105,6 @@
             <option>바지</option>
         </select>
         <select class="form-select mt-2 hide">
-            <option>95</option>
-            <option>100</option>
-            <option>105</option>
-            <option>110</option>
         </select>
 
     </form>
@@ -165,21 +161,57 @@
 
         // 모자 선택시 모자 셀렉트에 하이드클래스 빼주라
 
-
+        var pants = [28,, 30, 32, 34];
+        var shirts = [95, 100, 105];
         $('.form-select').eq(0).on('input', function (e) {
+
             value = e.currentTarget.value;
             if (value == '셔츠') {
                 $('.form-select').eq(1).removeClass('hide');
+                $('.form-select').eq(1).html('');
+                shirts.forEach(function(a){
+                //forEach(function('배열값 파라미터', '인덱스(=생략가능)')
+                    $('.form-select').eq(1).append(`<option>${a}</option>`);
+                });
+
+                /* $('.form-select').eq(1).html(''); */
+                /* var template = `<option>95</option>
+                <option>100</option>
+                <option>105</option>
+                <option>110</option>`; */
+                /* $('.form-select').eq(1).append(template); */
+                /* $('.form-select').eq(1).html(template); */
             }
             if (value == '모자') {
                 $('.form-select').eq(1).addClass('hide');
-            } else if(value == '바지'){
+            } else if (value == '바지') {
                 $('.form-select').eq(1).removeClass('hide');
-                var template =`<option>95</option>
-                <option>100</option>`;
+                $('.form-select').eq(1).html('');
+                /* $('.form-select').eq(1).html(''); */
+                /* var template = `<option>28</option>
+                <option>29</option>
+                <option>30</option>`; */
+                /* $('.form-select').eq(1).append(template); */
+                
+
+                // forEach반복문
+                pants.forEach(function(a){
+                //forEach(function('배열값 파라미터', '인덱스(=생략가능)')
+                    $('.form-select').eq(1).append(`<option>${a}</option>`);
+                });
+                
+                /* $('.form-select').eq(1).html(template); */
+
 
             }
         });
+        // forin반복문
+        var obj = {name : 'kim', age : 20};
+
+        for (var key in obj) {
+            console.log(key); // key는 키값을 불러온다. ex. name, age 출력
+            console.log(obj[key]) // 오브젝트의 키값에따른 velue를 출력
+        }
 
 
 
