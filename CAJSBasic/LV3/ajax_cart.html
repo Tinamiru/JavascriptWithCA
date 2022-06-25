@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <!-- bootstrap lib -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- JQuery lib -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+        </script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <a href="cart.html">
+        <button class="btn btn-danger" id="cart" style="float: right" href="cart.html">장바구니</button></a>
+
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+
+
+    <script>
+
+        var products = [
+            { id: 0, price: 70000, title: 'Blossom Dress' },
+            { id: 1, price: 50000, title: 'Springfield Shirt' },
+            { id: 2, price: 60000, title: 'Black Monastery' },
+        ];
+
+
+        function pricePrint() {
+            products.forEach(function (a) {
+                //forEach(function('배열값 파라미터', '인덱스(=생략가능)')
+                var temp = `<div class="col-sm-4">
+                    <img src="https://via.placeholder.com/600" class="w-100">
+                    <h5>${a.title}</h5>
+                    <p>가격 : ${a.price}</p>
+                    <button class = "btn btn-danger buyBtn" name = "${a.title}">구매</button>
+                </div>`;
+                $('.row').eq(0).append(temp);
+            });
+        }
+        pricePrint();
+
+
+        // 장바구니 누르면 장바구니 페이지가 보이게 해라
+        // 장바구니 페이지에 로컬스토리지에 저장된 정보 출력해라
+
+
+        function checker(t,lt) {
+            t.forEach(a => {
+                console.log(a.title)
+                    console.log(lt.title)
+                if (a.title != lt.title) {
+                    return true;
+                }else{
+                    return false;
+                }
+            });
+        }
+        // 구매 버튼 누르면 해당 상품 로컬스토리지에 넣어라 - 성공
+        // title값이 중복될 경우 num값 카운트가 올라가게 만들어라.
+        $('.buyBtn').click(function (e) {
+            let title = [{title:$(e.target).siblings('h5').text(),num:0}];
+
+            if (localStorage.getItem('cart') != null) {
+                let cartValue = JSON.parse(localStorage.cart);
+                    cartValue.push(title);
+                    localStorage.setItem('cart', JSON.stringify(cartValue));
+            } else {
+                localStorage.setItem('cart', JSON.stringify([title]));
+            }
+            /*
+            if(!localStorage.hasOwnProperty('cart')){
+                localStorage.setItem('cart', "없음") // cart키가 없을경우 생성
+            }
+            let btnClass = $('.buyBtn'); // 버튼 변수화
+            //let name = $(e.target).prop('name');// 태그의 name값 
+            let name = $(e.target).siblings('h5').text(); // 버튼 태그의 형제요소 h5
+            
+            let cartItem = localStorage.getItem('cart') // 카트키값에 해당하는 값을 obj화
+            
+            if(cartItem == "없음"){
+                let array = [name]; // 새 이름값 기입 배열에 담음
+                newArray = JSON.stringify(array);
+            } else{
+                let array = JSON.parse(cartItem)
+                array.push(name)
+                newArray = JSON.stringify(array);
+                JSON.parse(newArray)
+            }
+            //JSON.parse(array) // 입력 전 JSON화
+            localStorage.setItem('cart', newArray);// 키에 대한 값 입력
+            */
+
+        });
+
+            // localStorage.
+
+        /* localStorage.setItem('이름','kim');
+        localStorage.getItem('이름');
+        localStorage.removeItem('이름'); */
+
+        /*
+        var arr = [1,2,3];
+
+        var newArr = JSON.stringify(arr);
+
+        localStorage.setItem('num', newArr);
+        var open = localStorage.getItem('num')
+        JSON.parse(open)
+        console.log(JSON.parse(open))
+        console.log(JSON.parse(open[1])) */
+
+            // sessionStorage 동일
+
+            // update - 기능 X
+            // 1. 꺼냄
+            // 2. 꺼낸거 수정
+            // 3. 다시넣음
+
+    </script>
+
+    <script src="tab.js"></script>
+</body>
+
+</html>
